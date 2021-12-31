@@ -1,0 +1,19 @@
+{
+  "name": "eve",
+  "version": "0.0.0",
+  "description": "A web application starter",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/djmccormick/eve.git"
+  },
+  "author": "Dustin McCormick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/djmccormick/eve/issues"
+  },
+  "homepage": "https://github.com/djmccormick/eve#readme"
+}
