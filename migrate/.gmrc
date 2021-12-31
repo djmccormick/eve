@@ -1,0 +1,39 @@
+{
+  "placeholders": {
+	":DATABASE_USER": "!ENV",
+	":DATABASE_VISITOR": "!ENV"
+  },
+
+  /*
+   * afterReset: actions executed after a `graphile-migrate reset` command.
+   */
+  "afterReset": [
+    // "afterReset.sql",
+    // { "_": "command", "command": "graphile-worker --schema-only" },
+  ],
+ 
+  /*
+   * afterAllMigrations: actions executed once all migrations are complete.
+   */
+  "afterAllMigrations": [
+    // {
+    //   "_": "command",
+    //   "shadow": true,
+    //   "command": "if [ \"$IN_TESTS\" != \"1\" ]; then ./scripts/dump-db; fi",
+    // },
+  ],
+
+  /*
+   * afterCurrent: actions executed once the current migration has been
+   * evaluated (i.e. in watch mode).
+   */
+  "afterCurrent": [
+    // {
+    //   "_": "command",
+    //   "shadow": true,
+    //   "command": "if [ \"$IN_TESTS\" = \"1\" ]; then ./scripts/test-seed; fi",
+    // },
+  ],
+  blankMigrationContent: "",
+  migrationsFolder: "./",
+}

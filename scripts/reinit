@@ -1,0 +1,4 @@
+docker-compose down
+docker volume rm eve_database
+docker rmi eve_database
+docker-compose up

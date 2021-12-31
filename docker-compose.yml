@@ -1,0 +1,93 @@
+version: "3.9"
+
+services:
+  database:
+    container_name: eve_database
+    restart: unless-stopped
+    image: eve_database
+    build:
+      context: ./database
+    volumes:
+      - database:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+    networks:
+      - network
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  migrate:
+    container_name: eve_migrate
+    restart: unless-stopped
+    image: eve_migrate
+    build:
+      context: ./migrate
+    env_file:
+      - ./.env
+    depends_on:
+      - database
+    networks:
+      - network
+    command: ["watch"]
+    volumes:
+      - ./migrate:/migrate
+  worker:
+    container_name: eve_worker
+    restart: unless-stopped
+    image: eve_worker
+    build:
+      context: ./worker
+    env_file:
+      - ./.env
+    depends_on:
+      - database
+    networks:
+      - network
+    command: ["--watch"]
+    volumes:
+      - ./worker:/worker
+  graphql:
+    container_name: eve_graphql
+    restart: unless-stopped
+    image: eve_graphql
+    build:
+      context: ./graphql
+    env_file:
+      - ./.env
+    depends_on:
+      - database
+    networks:
+      - network
+    ports:
+      - 5433:5433
+    command:
+      [
+        "--connection", "${DATABASE_URL}",
+        "--owner-connection", "${SUPERUSER_APPLICATION_DATABASE_URL}",
+        "--port", "5433",
+        "--schema", "public",
+        "--subscriptions",
+        "--watch",
+        "--dynamic-json",
+        "--no-setof-functions-contain-nulls",
+        "--no-ignore-rbac",
+        "--show-error-stack=json",
+        "--extended-errors", "hint,detail,errcode",
+        "--export-schema-graphql", "schema.graphql",
+        "--graphiql", "/",
+        "--enhance-graphiql",
+        "--allow-explain",
+        "--enable-query-batching",
+        "--legacy-relations", "omit",
+        "--append-plugins", "@graphile-contrib/pg-order-by-related,@graphile-contrib/pg-simplify-inflector,postgraphile-plugin-connection-filter,postgraphile-plugin-nested-mutations"
+      ]
+
+networks:
+  network:
+
+volumes:
+  database:
