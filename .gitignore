@@ -1,4 +1,26 @@
+# dependencies
+/node_modules
+/client/node_modules
+
+# next.js
+/client/.next/
+/client/out/
+
+# production
+/client/build
+
+# misc
 .DS_Store
-.env
+
+# debug
+npm-debug.log*
+
+# Docker
 docker-compose.override.yml
-node_modules/
+
+# local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

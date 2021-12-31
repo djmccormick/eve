@@ -85,6 +85,20 @@ services:
         "--legacy-relations", "omit",
         "--append-plugins", "@graphile-contrib/pg-order-by-related,@graphile-contrib/pg-simplify-inflector,postgraphile-plugin-connection-filter,postgraphile-plugin-nested-mutations"
       ]
+  client:
+    container_name: eve_client
+    restart: unless-stopped
+    image: eve_client
+    build:
+      context: ./client
+    env_file:
+      - ./.env
+    depends_on:
+      - graphql
+    networks:
+      - network
+    volumes:
+      - ./client:/app
 
 networks:
   network:
