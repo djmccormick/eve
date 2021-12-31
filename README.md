@@ -25,23 +25,25 @@ This service runs [Postgres](https://www.postgresql.org/), a powerful, open sour
 
 This service runs [graphile-migrate](https://github.com/graphile/migrate), an opinionated SQL-powered productive roll-forward migration tool for Postgres. It uses the [official Node.js Docker image based on Alpine Linux](https://hub.docker.com/_/node), [configured](migrate/.gmrc) to work with the database service.
 
-When started using `docker compose up`, this service watches the "current" migration for changes and applies them automatically.
+When started using `docker compose up`, this service runs graphile-migrate in watch mode which runs any un-executed committed migrations and then runs and watches the current migration, re-running it on any change.
 
 ### worker
 
 This service runs [graphile-worker](https://github.com/graphile/worker), a job queue for Postgres. It uses the [official Node.js Docker image based on Alpine Linux](https://hub.docker.com/_/node), configured to work with the database service.
 
-When started using `docker compose up`, this service watches task files for changes and applies them automatically.
+When started using `docker compose up`, this service runs graphile-worker in watch mode which watches task files for changes, automatically reloading the task code without restarting worker.
 
 ### graphql
 
 This service runs [Postgraphile](https://github.com/graphile/postgraphile), an instant lightning-fast GraphQL API backed primarily by the Postgres database. It uses the [official Node.js Docker image based on Alpine Linux](https://hub.docker.com/_/node), configured to work with the database service and with [recommended plugins](graphql/Dockerfile).
 
-When started using `docker compose up`, this service watches the database for changes and applies them automatically.
+When started using `docker compose up`, this service runs Postgraphile in watch mode which automatically updates your GraphQL schema when your database schema changes.
 
 ### client
 
 This service runs [Next.js](https://github.com/vercel/next.js), a production-ready [React](https://github.com/facebook/react) framework. It uses [Apollo Client](https://github.com/apollographql/apollo-client) to interact with the graphql service and leverages the [Material UI](https://github.com/mui-org/material-ui) component library.
+
+When started using `docker compose up`, this service runs Next.js in development mode with hot-code reloading, error reporting, and more.
 
 ## Development
 
