@@ -11,15 +11,15 @@ export default function Index() {
 	return (
 		<>
 			<Head>
-				<title>Home - eve</title>
+				<title>About - eve</title>
 			</Head>
 			<Container maxWidth="sm">
 				<Box sx={{ my: 4 }}>
 					<Typography variant="h4" component="h1" gutterBottom>
-						Next.js example: Home
+						Next.js example: About
 					</Typography>
-					<Link href="/about" color="secondary">
-						Go to the about page
+					<Link href="/" color="secondary">
+						Go to the home page
 					</Link>
 				</Box>
 			</Container>
