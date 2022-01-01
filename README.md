@@ -1,6 +1,6 @@
 # eve
 
-eve is a starter project featuring Node, Postgres, Postgraphile / Graphile Worker / Graphile Migrate, Next.js, Apollo Client, and Material UI.
+eve is a starter project featuring Node, Postgres, PostGraphile / Graphile Worker / Graphile Migrate, Next.js, Apollo Client, and Material UI.
 
 ## Installation
 
@@ -35,9 +35,9 @@ When started using `docker compose up`, this service runs graphile-worker in wat
 
 ### graphql
 
-This service runs [Postgraphile](https://github.com/graphile/postgraphile), an instant lightning-fast GraphQL API backed primarily by the Postgres database. It uses the [official Node.js Docker image based on Alpine Linux](https://hub.docker.com/_/node), configured to work with the database service and with [recommended plugins](graphql/Dockerfile).
+This service runs [PostGraphile](https://github.com/graphile/postgraphile), an instant lightning-fast GraphQL API backed primarily by the Postgres database. It uses the [official Node.js Docker image based on Alpine Linux](https://hub.docker.com/_/node), configured to work with the database service and with [recommended plugins](graphql/Dockerfile).
 
-When started using `docker compose up`, this service runs Postgraphile in watch mode which automatically updates your GraphQL schema when your database schema changes.
+When started using `docker compose up`, this service runs PostGraphile in watch mode which automatically updates your GraphQL schema when your database schema changes.
 
 ### client
 
