@@ -1,11 +1,18 @@
-FROM node:alpine
-LABEL description="Opinionated SQL-powered productive roll-forward migration tool for PostgreSQL https://github.com/graphile/migrate"
+# Install dependencies only when needed
+FROM node:alpine AS dependencies
+WORKDIR /migrate
+COPY package.json package-lock.json ./
+RUN npm install
+
+
+# Prepare to run Graphile Migrate
+FROM node:alpine AS runner
+WORKDIR /migrate
+COPY . .
+COPY --from=dependencies /migrate/node_modules ./node_modules
 
 # Install Postgres client
 RUN apk --update add postgresql-client
 
-# Install Graphile Migrate
-RUN npm install -g graphile-migrate
-
-WORKDIR /migrate
-ENTRYPOINT ["graphile-migrate"]
+# Start Graphile Migrate
+ENTRYPOINT ["npm", "start"]

@@ -1,0 +1,11 @@
+{
+  "name": "eve-migrate",
+  "private": true,
+  "scripts": {
+    "start": "npx graphile-migrate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "graphile-migrate": "1.2.0"
+  }
+}

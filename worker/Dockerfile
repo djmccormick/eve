@@ -1,8 +1,15 @@
-FROM node:alpine
-LABEL description="Job queue for PostgreSQL running on Node.js https://github.com/graphile/worker"
-
-# Install graphile-worker
-RUN npm install -g graphile-worker
-
+# Install dependencies only when needed
+FROM node:alpine AS dependencies
 WORKDIR /worker
-ENTRYPOINT ["graphile-worker"]
+COPY package.json package-lock.json ./
+RUN npm install
+
+
+# Prepare to run Graphile Worker
+FROM node:alpine AS runner
+WORKDIR /worker
+COPY . .
+COPY --from=dependencies /worker/node_modules ./node_modules
+
+# Start Graphile Worker
+ENTRYPOINT ["npm", "start"]

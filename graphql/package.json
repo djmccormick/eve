@@ -1,0 +1,15 @@
+{
+  "name": "eve-graphql",
+  "private": true,
+  "scripts": {
+    "start": "npx postgraphile",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@graphile-contrib/pg-order-by-related": "1.0.0-beta.6",
+    "@graphile-contrib/pg-simplify-inflector": "6.1.0",
+    "postgraphile": "4.12.8",
+    "postgraphile-plugin-connection-filter": "2.2.2",
+    "postgraphile-plugin-nested-mutations": "1.1.0"
+  }
+}

@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 export default function Home() {
 	return (
-		<div className={styles.container}>
+		<div>
 			<Head>
 				<title>Client</title>
 				<meta name="description" content="" />
@@ -15,8 +15,7 @@ export default function Home() {
 				</h1>
 
 				<p>
-					Get started by editing{' '}
-					<code className={styles.code}>pages/index.js</code>
+					Get started by editing <code>pages/index.js</code>
 				</p>
 			</main>
 		</div>

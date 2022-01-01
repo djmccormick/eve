@@ -15,7 +15,6 @@ revoke all on database ${DATABASE_NAME}_shadow from public;
 grant all on database ${DATABASE_NAME} to ${DATABASE_OWNER};
 grant all on database ${DATABASE_NAME}_shadow to ${DATABASE_OWNER};
 \c ${DATABASE_NAME}
-create extension if not exists plpgsql with schema pg_catalog;
 create extension if not exists "uuid-ossp" with schema public;
 create extension if not exists citext with schema public;
 create extension if not exists pgcrypto with schema public;
