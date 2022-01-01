@@ -1,6 +1,6 @@
 # eve
 
-eve is a starter project featuring Postgres, Postgraphile / Graphile Worker / Graphile Migrate, Next.js, Apollo Client, and Material UI.
+eve is a starter project featuring Node, Postgres, Postgraphile / Graphile Worker / Graphile Migrate, Next.js, Apollo Client, and Material UI.
 
 ## Installation
 
