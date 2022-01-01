@@ -26,6 +26,7 @@ services:
       context: ./migrate
     volumes:
       - ./migrate:/migrate
+      - /migrate/node_modules
     env_file:
       - ./.env
     networks:
@@ -41,6 +42,7 @@ services:
       context: ./worker
     volumes:
       - ./worker:/worker
+      - /worker/node_modules
     env_file:
       - ./.env
     networks:
@@ -91,13 +93,16 @@ services:
     build:
       context: ./client
     volumes:
-      - ./client:/app
+      - ./client:/client
+      - /client/node_modules
+      - /client/.next
     env_file:
       - ./.env
     networks:
       - network
     ports:
       - 3000:3000
+    command: ["npm", "run", "dev"]
 
 networks:
   network:

@@ -10,6 +10,7 @@ FROM node:alpine AS builder
 WORKDIR /client
 COPY . .
 COPY --from=dependencies /client/node_modules ./node_modules
+ENV NEXT_TELEMETRY_DISABLED 1
 RUN npm run build
 
 
