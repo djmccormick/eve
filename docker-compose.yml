@@ -4,7 +4,6 @@ services:
   database:
     container_name: eve_database
     restart: unless-stopped
-    image: eve_database
     build:
       context: ./database
     volumes:
@@ -23,7 +22,6 @@ services:
   migrate:
     container_name: eve_migrate
     restart: unless-stopped
-    image: eve_migrate
     build:
       context: ./migrate
     volumes:
@@ -39,7 +37,6 @@ services:
   worker:
     container_name: eve_worker
     restart: unless-stopped
-    image: eve_worker
     build:
       context: ./worker
     volumes:
@@ -55,7 +52,6 @@ services:
   graphql:
     container_name: eve_graphql
     restart: unless-stopped
-    image: eve_graphql
     build:
       context: ./graphql
     env_file:
@@ -92,7 +88,6 @@ services:
   client:
     container_name: eve_client
     restart: unless-stopped
-    image: eve_client
     build:
       context: ./client
     volumes:
