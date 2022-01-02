@@ -7,7 +7,6 @@ import Container from '@mui/material/Container';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import NoSsr from '@mui/base/NoSsr';
 import Typography from '@mui/material/Typography';
 
 import Link from '../components/link';

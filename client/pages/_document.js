@@ -61,10 +61,9 @@ CustomDocument.getInitialProps = async (ctx) => {
 
 	ctx.renderPage = () =>
 		originalRenderPage({
-			enhanceApp: (App) =>
-			function EnhanceApp(props) {
+			enhanceApp: (App) => function EnhanceApp(props) {
 				return <App emotionCache={cache} {...props} />;
-			},
+			}
 		});
 
 	const initialProps = await Document.getInitialProps(ctx);
@@ -82,6 +81,6 @@ CustomDocument.getInitialProps = async (ctx) => {
 
 	return {
 		...initialProps,
-		emotionStyleTags,
+		emotionStyleTags
 	};
 };
