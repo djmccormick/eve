@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint --cache .",
-    "format": "prettier --write \"{**/,}*.{js,jsx,ts,mjs,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}\"",
+    "format": "prettier --write \"{**/,}*.{js,jsx,ts,mjs,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,prettierrc}\"",
     "test": "npm run lint",
     "prepare": "husky install"
   },
