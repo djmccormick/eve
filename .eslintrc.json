@@ -1,0 +1,31 @@
+{
+	"root": true,
+	"extends": ["eslint:recommended", "next", "next/core-web-vitals"],
+	"plugins": ["prettier"],
+	"env": {
+		"es6": true
+	},
+	"rules": {
+		"eqeqeq": ["error", "smart"],
+		"import/no-anonymous-default-export": "off",
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"linebreak-style": ["error", "unix"],
+		"no-cond-assign": ["error", "always"],
+		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+		"no-restricted-imports": [
+			"error",
+			{
+				"patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
+			}
+		],
+		"prettier/prettier": "error",
+		"quotes": ["error", "single", { "avoidEscape": true }],
+		"react-hooks/exhaustive-deps": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react/jsx-uses-react": "off",
+		"react/no-unescaped-entities": "off",
+		"react/prop-types": "off",
+		"react/react-in-jsx-scope": "off",
+		"semi": ["error", "always"]
+	}
+}

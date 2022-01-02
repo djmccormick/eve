@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { ApolloProvider } from "@apollo/client";
+import { ApolloProvider } from '@apollo/client';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
@@ -29,7 +29,7 @@ export default function CustomApp(props) {
 			</CacheProvider>
 		</ApolloProvider>
 	);
-};
+}
 
 CustomApp.propTypes = {
 	Component: PropTypes.elementType.isRequired,

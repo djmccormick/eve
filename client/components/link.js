@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 import { useRouter } from 'next/router';
+import { without } from 'lodash';
 
 import MuiLink from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
@@ -11,7 +12,8 @@ import { styled } from '@mui/material/styles';
 const Anchor = styled('a')({});
 
 export const NextLinkComposed = forwardRef(function NextLinkComposed(props, ref) {
-	const { to, linkAs, href, replace, scroll, shallow, prefetch, locale, ...other } = props;
+	const { to, linkAs, replace, scroll, shallow, prefetch, locale, ...remainingProps } = props;
+	const other = without(remainingProps, ['href']);
 
 	return (
 		<NextLink
@@ -38,7 +40,7 @@ NextLinkComposed.propTypes = {
 	replace: PropTypes.bool,
 	scroll: PropTypes.bool,
 	shallow: PropTypes.bool,
-	to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
+	to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired
 };
 
 // A styled version of the Next.js Link component:
@@ -50,14 +52,16 @@ const Link = forwardRef(function Link(props, ref) {
 		className: classNameProps,
 		href,
 		noLinkStyle,
-		role, // Link don't have roles.
-		...other
+		...remainingProps
 	} = props;
+
+	// Link don't have roles.
+	const other = without(remainingProps, ['role']);
 
 	const router = useRouter();
 	const pathname = typeof href === 'string' ? href : href.pathname;
 	const className = clsx(classNameProps, {
-		[activeClassName]: router.pathname === pathname && activeClassName,
+		[activeClassName]: router.pathname === pathname && activeClassName
 	});
 
 	const isExternal =
@@ -94,7 +98,7 @@ Link.propTypes = {
 	href: PropTypes.any,
 	linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 	noLinkStyle: PropTypes.bool,
-	role: PropTypes.string,
+	role: PropTypes.string
 };
 
 export default Link;

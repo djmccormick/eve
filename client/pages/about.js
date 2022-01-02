@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Head from 'next/head';
 import { useQuery, gql } from '@apollo/client';
 
@@ -46,7 +45,7 @@ export default function Index() {
 							<List>
 								{widgets.map(widget => (
 									<ListItem key={widget.nodeId}>
-										<ListItemText primary={widget.name} secondary={widget.description}/>
+										<ListItemText primary={widget.name} secondary={widget.description} />
 									</ListItem>
 								))}
 							</List>
@@ -59,4 +58,4 @@ export default function Index() {
 			</Container>
 		</>
 	);
-};
+}

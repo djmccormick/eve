@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+	"env": {
+		"browser": true
+	},
+	"globals": {
+		"global": true,
+		"process": true
+	},
+	"rules": {
+		"no-console": 2,
+		"@next/next/no-html-link-for-pages": [2, "./client/pages"]
+	}
 }

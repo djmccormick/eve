@@ -9,6 +9,7 @@ Copy `sample.env` to `.env` and add database passwords throughout.
 ## Usage
 
 Start the local development environment with Docker Compose:
+
 ```bash
 docker compose up
 ```
@@ -54,4 +55,5 @@ More information coming soon.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+
 [MIT](LICENSE.txt)

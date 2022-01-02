@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 
 services:
   database:
@@ -34,7 +34,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-    command: ["--", "watch"]
+    command: ['--', 'watch']
   worker:
     container_name: eve_worker
     restart: unless-stopped
@@ -50,7 +50,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-    command: ["--", "--watch"]
+    command: ['--', '--watch']
   graphql:
     container_name: eve_graphql
     restart: unless-stopped
@@ -67,25 +67,34 @@ services:
         condition: service_healthy
     command:
       [
-        "--",
-        "--connection", "${DATABASE_URL}",
-        "--owner-connection", "${SUPERUSER_APPLICATION_DATABASE_URL}",
-        "--port", "5433",
-        "--schema", "public",
-        "--subscriptions",
-        "--watch",
-        "--dynamic-json",
-        "--no-setof-functions-contain-nulls",
-        "--no-ignore-rbac",
-        "--show-error-stack=json",
-        "--extended-errors", "hint,detail,errcode",
-        "--export-schema-graphql", "schema.graphql",
-        "--graphiql", "/",
-        "--enhance-graphiql",
-        "--allow-explain",
-        "--enable-query-batching",
-        "--legacy-relations", "omit",
-        "--append-plugins", "@graphile-contrib/pg-order-by-related,@graphile-contrib/pg-simplify-inflector,postgraphile-plugin-connection-filter,postgraphile-plugin-nested-mutations"
+        '--',
+        '--connection',
+        '${DATABASE_URL}',
+        '--owner-connection',
+        '${SUPERUSER_APPLICATION_DATABASE_URL}',
+        '--port',
+        '5433',
+        '--schema',
+        'public',
+        '--subscriptions',
+        '--watch',
+        '--dynamic-json',
+        '--no-setof-functions-contain-nulls',
+        '--no-ignore-rbac',
+        '--show-error-stack=json',
+        '--extended-errors',
+        'hint,detail,errcode',
+        '--export-schema-graphql',
+        'schema.graphql',
+        '--graphiql',
+        '/',
+        '--enhance-graphiql',
+        '--allow-explain',
+        '--enable-query-batching',
+        '--legacy-relations',
+        'omit',
+        '--append-plugins',
+        '@graphile-contrib/pg-order-by-related,@graphile-contrib/pg-simplify-inflector,postgraphile-plugin-connection-filter,postgraphile-plugin-nested-mutations'
       ]
   client:
     container_name: eve_client
@@ -104,7 +113,7 @@ services:
       - network
     ports:
       - 3000:3000
-    command: ["npm", "run", "dev"]
+    command: ['npm', 'run', 'dev']
 
 networks:
   network:

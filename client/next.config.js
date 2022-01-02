@@ -10,6 +10,6 @@ module.exports = {
 				source: '/graphiql/:slug*',
 				destination: `${process.env.GRAPHQL_URL}/:slug*`
 			}
-		]
+		];
 	}
 };

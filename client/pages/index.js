@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Head from 'next/head';
 
 import Box from '@mui/material/Box';
@@ -25,4 +24,4 @@ export default function Index() {
 			</Container>
 		</>
 	);
-};
+}
