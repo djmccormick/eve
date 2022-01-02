@@ -1,3 +1,4 @@
 **/node_modules/**
 /.github/
 /client/public/
+/client/.next/
