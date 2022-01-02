@@ -1,4 +1,5 @@
 {
+	"root": false,
 	"env": {
 		"browser": true
 	},
@@ -7,7 +8,6 @@
 		"process": true
 	},
 	"rules": {
-		"no-console": 2,
-		"@next/next/no-html-link-for-pages": [2, "./client/pages"]
+		"no-console": 2
 	}
 }

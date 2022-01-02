@@ -44,6 +44,8 @@ When started using `docker compose up`, this service runs PostGraphile in watch 
 
 This service runs [Next.js](https://github.com/vercel/next.js), a production-ready [React](https://github.com/facebook/react) framework. It uses [Apollo Client](https://github.com/apollographql/apollo-client) to interact with the graphql service and leverages the [Material UI](https://github.com/mui-org/material-ui) component library.
 
+The `/graphql` and `/graphiql` endpoints are proxied from this service to the `graphql` service.
+
 When started using `docker compose up`, this service runs Next.js in development mode with hot-code reloading, error reporting, and more.
 
 ## Development

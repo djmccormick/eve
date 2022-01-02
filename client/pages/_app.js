@@ -7,8 +7,8 @@ import { CacheProvider } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
 import createCache from '@emotion/cache';
 
-import theme from '../theme';
-import apolloClient from '../apollo-client';
+import theme from 'theme';
+import apolloClient from 'apollo-client';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createCache({ key: 'css', prepend: true });

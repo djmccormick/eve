@@ -1,11 +1,13 @@
 {
 	"root": true,
-	"extends": ["eslint:recommended", "next", "next/core-web-vitals"],
+	"extends": ["eslint:recommended", "next/core-web-vitals"],
 	"plugins": ["prettier"],
+	"parserOptions": { "sourceType": "module" },
 	"env": {
 		"es6": true
 	},
 	"rules": {
+		"@next/next/no-html-link-for-pages": [2, "./client/pages"],
 		"eqeqeq": ["error", "smart"],
 		"import/no-anonymous-default-export": "off",
 		"indent": ["error", "tab", { "SwitchCase": 1 }],

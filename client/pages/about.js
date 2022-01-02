@@ -8,7 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
-import Link from '../components/link';
+import Link from 'components/link';
 
 const QUERY = gql`
 	query listAllWidgets {

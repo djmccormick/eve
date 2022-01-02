@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 import { useRouter } from 'next/router';
-import { without } from 'lodash';
+import { omit } from 'lodash';
 
 import MuiLink from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
@@ -13,7 +13,7 @@ const Anchor = styled('a')({});
 
 export const NextLinkComposed = forwardRef(function NextLinkComposed(props, ref) {
 	const { to, linkAs, replace, scroll, shallow, prefetch, locale, ...remainingProps } = props;
-	const other = without(remainingProps, ['href']);
+	const other = omit(remainingProps, ['href']);
 
 	return (
 		<NextLink
@@ -56,7 +56,7 @@ const Link = forwardRef(function Link(props, ref) {
 	} = props;
 
 	// Link don't have roles.
-	const other = without(remainingProps, ['role']);
+	const other = omit(remainingProps, ['role']);
 
 	const router = useRouter();
 	const pathname = typeof href === 'string' ? href : href.pathname;

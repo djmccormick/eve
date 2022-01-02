@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint --cache .",
     "format": "prettier --write \"{**/,}*.{js,jsx,ts,mjs,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
     "prepare": "husky install"
   },
   "repository": {
