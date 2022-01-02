@@ -1,3 +1,3 @@
-export default function handler(req, res) {
+export default function healthcheck(req, res) {
 	res.status(200).json({ status: 'ok' })
 };
