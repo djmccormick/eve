@@ -6,6 +6,7 @@
 
 # debug
 npm-debug.log*
+.eslintcache
 
 # Docker
 docker-compose.override.yml
