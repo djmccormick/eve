@@ -1,3 +1,5 @@
+ARG GRAPHQL_URL
+
 # Install dependencies only when needed
 FROM node:alpine AS dependencies
 WORKDIR /client
@@ -11,6 +13,7 @@ WORKDIR /client
 COPY . .
 COPY --from=dependencies /client/node_modules ./node_modules
 ENV NEXT_TELEMETRY_DISABLED 1
+ENV GRAPHQL_URL $GRAPHQL_URL
 RUN npm run build
 
 

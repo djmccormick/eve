@@ -92,6 +92,8 @@ services:
     restart: unless-stopped
     build:
       context: ./client
+      args:
+        - GRAPHQL_URL
     volumes:
       - ./client:/client
       - /client/node_modules

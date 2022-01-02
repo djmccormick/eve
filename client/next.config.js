@@ -4,11 +4,11 @@ module.exports = {
 		return [
 			{
 				source: '/graphql/:slug*',
-				destination: `http://graphql:5433/graphql/:slug*`
+				destination: `${process.env.GRAPHQL_URL}/graphql/:slug*`
 			},
 			{
 				source: '/graphiql/:slug*',
-				destination: `http://graphql:5433/:slug*`
+				destination: `${process.env.GRAPHQL_URL}/:slug*`
 			}
 		]
 	}
