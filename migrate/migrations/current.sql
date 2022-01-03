@@ -1,16 +1,19 @@
 -- Enter migration here
 
--- Create a new table to house widgets
-drop table if exists widgets;
-create table if not exists widgets (
-	id serial primary key,
-	name varchar(255) not null,
-	description text,
-	created_at timestamp default now()
+-- Create a new table to house users
+drop domain if exists email_adress;
+create domain email_address as text check (
+	value ~ '[a-z0-9!#$%&''*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*'
 );
 
--- Insert some widgets
-insert into widgets(name, description, created_at)
-values
-	(E'Doodad', E'Purple in color', E'2022-01-02 00:25:34.321157'),
-	(E'Doohickey', E'Cold to the touch', E'2022-01-02 00:33:47.939024');
+drop table if exists users cascade;
+create table users (
+	id uuid primary key not null default uuid_generate_v1mc(),
+	email email_address not null unique,
+	created_at timestamptz not null default now(),
+	updated_at timestamptz not null default now()
+);
+
+-- For testing
+insert into users (email) values ('bob@thepriceisright.com');
+insert into users (email) values ('drew@thepriceisright.com');
