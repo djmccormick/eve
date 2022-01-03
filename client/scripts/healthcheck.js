@@ -17,4 +17,8 @@ request.on('error', function () {
 	process.exit(1);
 });
 
+request.on('timeout', function () {
+	process.exit(1);
+});
+
 request.end();
