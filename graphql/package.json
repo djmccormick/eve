@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "start": "postgraphile -n 0.0.0.0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "healthcheck": "./scripts/healthcheck.js"
   },
   "dependencies": {
     "@graphile-contrib/pg-order-by-related": "1.0.0-beta.6",
