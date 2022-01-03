@@ -116,6 +116,11 @@ services:
     ports:
       - 3000:3000
     command: ['npm', 'run', 'dev']
+    healthcheck:
+      test: ['CMD', 'npm', 'run', 'healthcheck']
+      interval: 2s
+      timeout: 1s
+      retries: 10
 
 networks:
   network:
