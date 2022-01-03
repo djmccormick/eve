@@ -50,8 +50,8 @@ When started using `docker compose up`, this service runs Next.js in development
 
 ## Scripts
 
-- `scripts/migrate.sh` allows you to easily run commands in a "migrate" container
-- `scripts/reset.sh` allows you to reset your development environment (delete volumes with the `-v` option)
+- `scripts/migrate.sh` allows you to easily run commands in a "migrate" container. For example: `./scripts/migrate.sh graphile-migrate commit`
+- `scripts/reset.sh` allows you to reset your development environment (delete volumes with the `-v` option). For example: `./scripts/reset.sh -v`
 
 ## Contributing
 

@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "start": "npm run migrate",
-    "migrate": "npx graphile-migrate watch --once && ./scripts/run-fixtures.js",
-    "watch": "npm run migrate && concurrently -n watch-migrations,watch-fixtures \"npx graphile-migrate watch\" \"./scripts/watch-fixtures.js\"",
+    "migrate": "graphile-migrate watch --once && ./scripts/run-fixtures.js",
+    "watch": "npm run migrate && concurrently -n watch-migrations,watch-fixtures \"graphile-migrate watch\" \"./scripts/watch-fixtures.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
