@@ -4,7 +4,7 @@
   "scripts": {
     "start": "npm run migrate",
     "migrate": "npx graphile-migrate watch --once && ./scripts/run-fixtures",
-    "watch": "npm run migrate && concurrently \"npx graphile-migrate watch\" \"./scripts/watch-fixtures\"",
+    "watch": "npm run migrate && concurrently -n watch-migrations,watch-fixtures \"npx graphile-migrate watch\" \"./scripts/watch-fixtures\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
