@@ -2,8 +2,12 @@
 
 const http = require('http');
 
-const postData =
-	'{"query":"query Healthcheck { __typename }", "variables": null, "operationName": "Healthcheck" }';
+const postData = JSON.stringify({
+	query: 'query Healthcheck { __typename }',
+	variables: null,
+	operationName: 'Healthcheck'
+});
+
 const options = {
 	host: 'graphql',
 	path: '/graphql',
