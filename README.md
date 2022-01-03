@@ -48,9 +48,10 @@ The `/graphql` and `/graphiql` endpoints are proxied from this service to the `g
 
 When started using `docker compose up`, this service runs Next.js in development mode with hot-code reloading, error reporting, and more.
 
-## Development
+## Scripts
 
-More information coming soon.
+- `scripts/migrate.sh` allows you to easily run commands in a "migrate" container
+- `scripts/reset.sh` allows you to reset your development environment (delete volumes with the `-v` option)
 
 ## Contributing
 
