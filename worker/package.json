@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "graphile-worker": "0.12.2"
+    "graphile-worker": "0.12.2",
+    "winston": "3.3.3"
   }
 }

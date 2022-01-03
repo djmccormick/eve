@@ -1,3 +1,5 @@
+const logger = require('../utilities/logger')('hello');
+
 module.exports = async payload => {
-	console.log(`Hello from ${payload.from}!`);
+	logger.info(`Hello from ${payload.from}`);
 };

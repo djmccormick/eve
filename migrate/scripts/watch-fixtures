@@ -11,7 +11,7 @@ const exec = util.promisify(child_process.exec);
 async function run(filename) {
 	logger.info(`Running ${filename}`);
 
-    const { stdout, stderr } = await exec(`npx graphile-migrate run ${filename}`);
+	const { stdout, stderr } = await exec(`npx graphile-migrate run ${filename}`);
 
 	if (stdout) {
 		logger.info(stdout);
