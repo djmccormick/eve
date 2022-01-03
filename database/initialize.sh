@@ -1,5 +1,5 @@
 echo "Initializing roles, databases, and extensions"
-psql -Xv ON_ERROR_STOP=1 <<HERE
+psql -Xv ON_ERROR_STOP=1 << HERE
 -- Create the roles
 create role ${DATABASE_OWNER} with login password '${DATABASE_OWNER_PASSWORD}';
 grant ${DATABASE_OWNER} to ${POSTGRES_USER};

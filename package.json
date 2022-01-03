@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint --cache .",
-    "format": "prettier --write \"{**/,}*.{js,jsx,ts,mjs,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,prettierrc}\"",
+    "format": "prettier --write \"{**/,}*.{js,jsx,ts,mjs,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,prettierrc,sh}\"",
     "test": "npm run lint",
     "prepare": "husky install"
   },
@@ -27,6 +27,7 @@
     "eslint-plugin-react-hooks": "4.3.0",
     "husky": "7.0.4",
     "prettier": "2.5.1",
+    "prettier-plugin-sh": "0.8.1",
     "pretty-quick": "3.1.3"
   }
 }
