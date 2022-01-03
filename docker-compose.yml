@@ -34,7 +34,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-    command: ['--', 'watch']
+    command: ['npm', 'run', 'watch']
   worker:
     container_name: eve_worker
     restart: unless-stopped
@@ -50,7 +50,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-    command: ['--', '--watch']
+    command: ['npm', 'run', 'watch']
   graphql:
     container_name: eve_graphql
     restart: unless-stopped
@@ -67,6 +67,8 @@ services:
         condition: service_healthy
     command:
       [
+        'npm',
+        'start',
         '--',
         '--connection',
         '${DATABASE_URL}',

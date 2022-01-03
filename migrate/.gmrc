@@ -3,5 +3,5 @@
 		":DATABASE_USER": "!ENV",
 		":DATABASE_VISITOR": "!ENV"
 	},
-	blankMigrationContent: ""
+	"blankMigrationContent": ""
 }

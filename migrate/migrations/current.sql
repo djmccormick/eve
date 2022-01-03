@@ -10,7 +10,7 @@ create table if not exists widgets (
 );
 
 -- Insert some widgets
-insert into widgets(id, name, description, created_at)
+insert into widgets(name, description, created_at)
 values
-	(1, E'Doodad', E'Purple in color', E'2022-01-02 00:25:34.321157'),
-	(2, E'Doohickey', E'Cold to the touch', E'2022-01-02 00:33:47.939024');
+	(E'Doodad', E'Purple in color', E'2022-01-02 00:25:34.321157'),
+	(E'Doohickey', E'Cold to the touch', E'2022-01-02 00:33:47.939024');

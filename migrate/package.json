@@ -2,10 +2,17 @@
   "name": "eve-migrate",
   "private": true,
   "scripts": {
-    "start": "npx graphile-migrate",
+    "start": "npm run migrate",
+    "migrate": "npx graphile-migrate watch --once && ./scripts/run-fixtures",
+    "watch": "npm run migrate && concurrently \"npx graphile-migrate watch\" \"./scripts/watch-fixtures\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "graphile-migrate": "1.2.0"
+    "graphile-migrate": "1.2.0",
+    "winston": "3.3.3"
+  },
+  "devDependencies": {
+    "concurrently": "6.5.1",
+    "gaze": "1.1.3"
   }
 }

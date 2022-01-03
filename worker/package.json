@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "start": "npx graphile-worker",
+    "watch": "npx graphile-worker --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

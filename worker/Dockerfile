@@ -12,4 +12,4 @@ COPY . .
 COPY --from=dependencies /worker/node_modules ./node_modules
 
 # Start Graphile Worker
-ENTRYPOINT ["npm", "start"]
+CMD ["npm", "start"]

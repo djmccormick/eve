@@ -15,4 +15,4 @@ COPY --from=dependencies /migrate/node_modules ./node_modules
 RUN apk --update add postgresql-client
 
 # Start Graphile Migrate
-ENTRYPOINT ["npm", "start"]
+CMD ["npm", "start"]

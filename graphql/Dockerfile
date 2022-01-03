@@ -13,4 +13,4 @@ COPY --from=dependencies /graphql/node_modules ./node_modules
 
 # Start PostGraphile
 EXPOSE 5433
-ENTRYPOINT ["npm", "start"]
+CMD ["npm", "start"]
