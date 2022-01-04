@@ -14,11 +14,6 @@ services:
       - network
     ports:
       - 5432:5432
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres']
-      interval: 2s
-      timeout: 1s
-      retries: 10
   migrate:
     container_name: eve_migrate
     restart: unless-stopped
@@ -98,11 +93,6 @@ services:
         '--append-plugins',
         '@graphile-contrib/pg-order-by-related,@graphile-contrib/pg-simplify-inflector,postgraphile-plugin-connection-filter,postgraphile-plugin-nested-mutations'
       ]
-    healthcheck:
-      test: ['CMD', 'npm', 'run', 'healthcheck']
-      interval: 10s
-      timeout: 2s
-      retries: 10
   client:
     container_name: eve_client
     restart: unless-stopped
@@ -121,11 +111,6 @@ services:
     ports:
       - 3000:3000
     command: ['npm', 'run', 'dev']
-    healthcheck:
-      test: ['CMD', 'npm', 'run', 'healthcheck']
-      interval: 10s
-      timeout: 2s
-      retries: 10
 
 networks:
   network:

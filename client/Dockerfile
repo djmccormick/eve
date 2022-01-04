@@ -43,3 +43,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # Start Next.js
 EXPOSE 3000
 CMD ["npm", "start"]
+
+# Define a healthcheck
+HEALTHCHECK  --interval=10s --timeout=2s --retries=10 \
+  CMD npm run healthcheck
