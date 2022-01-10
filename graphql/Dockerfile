@@ -1,7 +1,11 @@
 # Install dependencies only when needed
 FROM node:alpine AS dependencies
-WORKDIR /graphql
-COPY package.json package-lock.json ./
+WORKDIR /eve/common
+COPY ./common/package.json .
+WORKDIR /eve/graphql
+COPY ./graphql/package.json .
+WORKDIR /eve
+COPY package.json package-lock.json .
 RUN npm install
 
 
@@ -11,9 +15,18 @@ WORKDIR /graphql
 COPY . .
 COPY --from=dependencies /graphql/node_modules ./node_modules
 
+FROM node:alpine AS runner
+WORKDIR /eve
+COPY --from=dependencies /eve .
+WORKDIR /eve/common
+COPY ./common .
+WORKDIR /eve/graphql
+COPY ./graphql .
+WORKDIR /eve
+
 # Start PostGraphile
 EXPOSE 5433
-CMD ["npm", "start"]
+CMD ["npm", "run", "start", "--workspace=graphql"]
 
 # Define a healthcheck
 HEALTHCHECK  --interval=10s --timeout=2s --retries=10 \

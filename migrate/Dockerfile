@@ -1,18 +1,26 @@
 # Install dependencies only when needed
 FROM node:alpine AS dependencies
-WORKDIR /migrate
-COPY package.json package-lock.json ./
+WORKDIR /eve/common
+COPY ./common/package.json .
+WORKDIR /eve/migrate
+COPY ./migrate/package.json .
+WORKDIR /eve
+COPY package.json package-lock.json .
 RUN npm install
 
 
 # Prepare to run Graphile Migrate
 FROM node:alpine AS runner
-WORKDIR /migrate
-COPY . .
-COPY --from=dependencies /migrate/node_modules ./node_modules
+WORKDIR /eve
+COPY --from=dependencies /eve .
+WORKDIR /eve/common
+COPY ./common .
+WORKDIR /eve/migrate
+COPY ./migrate .
+WORKDIR /eve
 
 # Install Postgres client
 RUN apk --update add postgresql-client
 
 # Start Graphile Migrate
-CMD ["npm", "start"]
+CMD ["npm", "run", "start", "--workspace=migrate"]

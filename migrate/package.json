@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "graphile-migrate": "1.2.0",
-    "winston": "3.3.3"
+    "graphile-migrate": "1.2.0"
   },
   "devDependencies": {
     "concurrently": "6.5.1",

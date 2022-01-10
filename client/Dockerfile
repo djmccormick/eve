@@ -1,49 +1,64 @@
 ARG GRAPHQL_URL
 
+#
 # Install dependencies only when needed
+#
 FROM node:alpine AS dependencies
-WORKDIR /client
-COPY package.json package-lock.json ./
+WORKDIR /eve/common
+COPY ./common/package.json .
+WORKDIR /eve/client
+COPY ./client/package.json .
+WORKDIR /eve
+COPY package.json package-lock.json .
 RUN npm install
 
-
+#
 # Rebuild the source code only when needed
+#
 FROM node:alpine AS builder
-WORKDIR /client
-COPY . .
-COPY --from=dependencies /client/node_modules ./node_modules
+WORKDIR /eve
+COPY --from=dependencies /eve .
+WORKDIR /eve/common
+COPY ./common .
+WORKDIR /eve/client
+COPY ./client .
+WORKDIR /eve
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV GRAPHQL_URL $GRAPHQL_URL
-RUN npm run build
+#RUN npm install --no-save @swc/cli @swc/core @swc/core-linux-musl
+#RUN npm run build --workspace=client
 
 
-# Prepare to run Next.js
-FROM node:alpine AS runner
-WORKDIR /client
+##
+## Prepare to run Next.js
+##
+#FROM node:alpine AS runner
 
-# Create the nextjs user
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+## Create the nextjs user
+#RUN addgroup -g 1001 -S nodejs
+#RUN adduser -S nextjs -u 1001
 
-# Copy the Next.js files into the container
-COPY --from=builder /client/next.config.js ./
-COPY --from=builder /client/public ./public
-COPY --from=builder --chown=nextjs:nodejs /client/.next ./.next
-COPY --from=builder /client/node_modules ./node_modules
-COPY --from=builder /client/package.json ./package.json
+## Copy the Next.js files into the container
+#WORKDIR /eve/client
+#COPY --from=builder /eve/client/next.config.js .
+#COPY --from=builder /eve/client/public ./public
+#COPY --from=builder --chown=nextjs:nodejs /eve/client/.next .
+#WORKDIR /eve
+#COPY --from=builder /eve/client/node_modules .
+#COPY --from=builder /eve/client/package.json .
 
-# Switch to the nextjs user
-USER nextjs
+## Switch to the nextjs user
+#USER nextjs
 
-# Set environment variables
-ENV PORT 3000
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+## Set environment variables
+#ENV PORT 3000
+#ENV NODE_ENV production
+#ENV NEXT_TELEMETRY_DISABLED 1
 
-# Start Next.js
-EXPOSE 3000
-CMD ["npm", "start"]
+## Start Next.js
+#EXPOSE 3000
+#CMD ["npm", "run", "start", "--workspace=client"]
 
-# Define a healthcheck
-HEALTHCHECK  --interval=10s --timeout=2s --retries=10 \
-  CMD npm run healthcheck
+## Define a healthcheck
+#HEALTHCHECK  --interval=10s --timeout=2s --retries=10 \
+#  CMD npm run healthcheck
