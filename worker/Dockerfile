@@ -1,4 +1,6 @@
-# Install dependencies only when needed
+#
+# Dependencies
+#
 FROM node:alpine AS dependencies
 WORKDIR /eve/common
 COPY ./common/package.json .
@@ -9,7 +11,9 @@ COPY package.json package-lock.json .
 RUN npm install
 
 
-# Prepare to run Graphile Worker
+#
+# Runner
+#
 FROM node:alpine AS runner
 WORKDIR /eve
 COPY --from=dependencies /eve .

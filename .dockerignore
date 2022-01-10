@@ -2,4 +2,4 @@
 **/npm-debug.log
 **/Dockerfile
 **/README.md
-client/.next
+/client/.next

@@ -120,10 +120,10 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./client:/eve/client
-      - ./common:/eve/common
       - /eve/node_modules
       - /eve/client/.next
+      - ./client:/eve/client
+      - ./common:/eve/common
     command: ['npm', 'run', 'dev', '--workspace=client']
 
 networks:

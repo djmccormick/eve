@@ -1,3 +1,4 @@
 **/node_modules/**
 /.github/
 /client/.next/
+/graphql/schema.graphql
