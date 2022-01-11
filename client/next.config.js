@@ -1,9 +1,6 @@
 module.exports = {
 	reactStrictMode: true,
-	eslint: {
-		// We run eslint from the root of the project instead
-		ignoreDuringBuilds: true
-	},
+	eslint: { ignoreDuringBuilds: true },
 	async rewrites() {
 		return [
 			{
