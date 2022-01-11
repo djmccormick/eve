@@ -21,6 +21,8 @@ services:
     build:
       context: .
       dockerfile: ./migrate/Dockerfile
+      args:
+        with_dev_dependencies: true
     env_file:
       - ./.env
     networks:

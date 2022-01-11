@@ -1,4 +1,5 @@
 ARG GRAPHQL_URL
+ARG with_dev_dependencies
 
 #
 # Dependencies
@@ -10,7 +11,8 @@ WORKDIR /eve/client
 COPY ./client/package.json .
 WORKDIR /eve
 COPY package.json package-lock.json .
-RUN npm install
+RUN npm set-script prepare ""
+RUN if [[ -z "$with_dev_dependencies" ]] ; then npm ci ; else npm ci --omit=dev ; fi
 
 
 #
