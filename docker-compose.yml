@@ -127,6 +127,9 @@ services:
       - ./client:/eve/client
       - ./common:/eve/common
     command: ['npm', 'run', 'dev', '--workspace=client']
+    depends_on:
+      graphql:
+        condition: service_healthy
 
 networks:
   network:

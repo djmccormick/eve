@@ -66,4 +66,4 @@ CMD ["npm", "run", "start", "--workspace=client"]
 
 # Define a healthcheck
 HEALTHCHECK  --interval=10s --timeout=2s --retries=10 \
-  CMD npm run healthcheck
+  CMD npm run healthcheck --workspace=client

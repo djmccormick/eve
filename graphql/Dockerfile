@@ -37,4 +37,4 @@ CMD ["npm", "run", "start", "--workspace=graphql"]
 
 # Define a healthcheck
 HEALTHCHECK  --interval=10s --timeout=2s --retries=10 \
-  CMD npm run healthcheck
+  CMD npm run healthcheck --workspace=graphql
