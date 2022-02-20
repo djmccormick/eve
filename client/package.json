@@ -8,16 +8,16 @@
     "healthcheck": "./scripts/healthcheck.js"
   },
   "dependencies": {
-    "@apollo/client": "3.5.6",
+    "@apollo/client": "3.5.9",
     "@emotion/cache": "11.7.1",
-    "@emotion/react": "11.7.1",
+    "@emotion/react": "11.8.1",
     "@emotion/server": "11.4.0",
-    "@emotion/styled": "11.6.0",
-    "@mui/icons-material": "5.2.5",
-    "@mui/material": "5.2.6",
+    "@emotion/styled": "11.8.1",
+    "@mui/icons-material": "5.4.2",
+    "@mui/material": "5.4.2",
     "lodash": "4.17.21",
-    "next": "^12.0.7",
-    "prop-types": "15.8.0",
+    "next": "12.1.0",
+    "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   }

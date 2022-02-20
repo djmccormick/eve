@@ -1,8 +1,8 @@
 const { createLogger, format, transports } = require('winston');
 
-module.exports = label =>
+module.exports = (service, label) =>
 	createLogger({
-		defaultMeta: { service: 'worker' },
+		defaultMeta: { service },
 		format: format.combine(
 			format.errors({ stack: true }),
 			format.label({ label }),

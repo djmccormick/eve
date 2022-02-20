@@ -2,6 +2,6 @@
   "name": "eve-common",
   "private": true,
   "dependencies": {
-    "winston": "3.3.3"
+    "winston": "3.6.0"
   }
 }

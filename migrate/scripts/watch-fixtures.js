@@ -4,7 +4,7 @@ const child_process = require('child_process');
 const gaze = require('gaze');
 const util = require('util');
 
-const logger = require('eve-common')('run-fixtures');
+const logger = require('eve-common')('migrate', 'watch-fixtures');
 
 const exec = util.promisify(child_process.exec);
 

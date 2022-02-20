@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 
-const logger = require('eve-common')('run-fixtures');
+const logger = require('eve-common')('migrate', 'run-fixtures');
 
 const exec = util.promisify(child_process.exec);
 

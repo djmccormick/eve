@@ -11,7 +11,7 @@
     "graphile-migrate": "1.2.0"
   },
   "devDependencies": {
-    "concurrently": "6.5.1",
+    "concurrently": "7.0.0",
     "gaze": "1.1.3"
   }
 }
