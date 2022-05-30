@@ -8,17 +8,15 @@
     "healthcheck": "./scripts/healthcheck.js"
   },
   "dependencies": {
-    "@apollo/client": "3.5.9",
+    "@apollo/client": "3.6.5",
     "@emotion/cache": "11.7.1",
-    "@emotion/react": "11.8.1",
+    "@emotion/react": "11.9.0",
     "@emotion/server": "11.4.0",
     "@emotion/styled": "11.8.1",
-    "@mui/icons-material": "5.4.2",
-    "@mui/material": "5.4.2",
+    "@mui/icons-material": "5.8.0",
+    "@mui/material": "5.8.1",
     "lodash": "4.17.21",
-    "next": "12.1.0",
-    "prop-types": "15.8.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "next": "12.1.6",
+    "prop-types": "15.8.1"
   }
 }
