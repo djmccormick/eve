@@ -16,7 +16,7 @@
   "homepage": "https://github.com/djmccormick/eve#readme",
   "scripts": {
     "lint": "eslint --cache .",
-    "format": "prettier --write \"{**/,}*.{js,jsx,ts,mjs,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,prettierrc,sh}\"",
+    "format": "prettier --write \"{**/,}*.{js,jsx,ts,mjs,css,json,graphql,gql,md,yaml,yml,html,webmanifest,prettierrc,sh}\"",
     "test": "npm run lint",
     "prepare": "husky install"
   },
