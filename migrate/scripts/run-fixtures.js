@@ -20,7 +20,7 @@ const exec = util.promisify(child_process.exec);
 
 			for (const f of sqlFiles) {
 				logger.info(`Running ${f}`);
-				await exec(`npx graphile-migrate run ${f}`);
+				await exec(`graphile-migrate run ${f}`);
 			}
 		}
 
