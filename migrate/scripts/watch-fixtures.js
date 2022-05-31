@@ -11,14 +11,18 @@ const exec = util.promisify(child_process.exec);
 async function run(filename) {
 	logger.info(`Running ${filename}`);
 
-	const { stdout, stderr } = await exec(`graphile-migrate run ${filename}`);
+	try {
+		const { stdout, stderr } = await exec(`graphile-migrate run ${filename}`);
 
-	if (stdout) {
-		logger.info(stdout);
-	}
+		if (stdout) {
+			logger.info(stdout);
+		}
 
-	if (stderr) {
-		logger.error(stderr);
+		if (stderr) {
+			logger.error(stderr);
+		}
+	} catch (error) {
+		logger.error(error);
 	}
 }
 
