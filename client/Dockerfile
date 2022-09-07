@@ -4,7 +4,7 @@ ARG with_dev_dependencies
 #
 # Dependencies
 #
-FROM node:alpine AS dependencies
+FROM node:lts-alpine AS dependencies
 WORKDIR /eve/common
 COPY ./common/package.json .
 WORKDIR /eve/client
@@ -18,7 +18,7 @@ RUN if [[ -z "$with_dev_dependencies" ]] ; then npm ci ; else npm ci --omit=dev 
 #
 # Builder
 #
-FROM node:alpine AS builder
+FROM node:lts-alpine AS builder
 WORKDIR /eve
 COPY --from=dependencies /eve .
 WORKDIR /eve/common
@@ -34,7 +34,7 @@ RUN npm run build --workspace=client
 #
 # Runner
 #
-FROM node:alpine AS runner
+FROM node:lts-alpine AS runner
 
 # Create the nextjs user
 RUN addgroup -g 1001 -S nodejs

@@ -9,7 +9,7 @@
   "dependencies": {
     "@graphile-contrib/pg-order-by-related": "1.0.0-beta.6",
     "@graphile-contrib/pg-simplify-inflector": "6.1.0",
-    "postgraphile": "4.12.9",
+    "postgraphile": "4.12.11",
     "postgraphile-plugin-connection-filter": "2.3.0",
     "postgraphile-plugin-nested-mutations": "1.1.0"
   }

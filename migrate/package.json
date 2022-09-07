@@ -8,10 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "graphile-migrate": "1.3.0"
+    "graphile-migrate": "1.4.0"
   },
   "devDependencies": {
     "chokidar": "3.5.3",
-    "concurrently": "7.2.1"
+    "concurrently": "7.3.0"
   }
 }

@@ -3,7 +3,7 @@ ARG with_dev_dependencies
 #
 # Dependencies
 #
-FROM node:alpine AS dependencies
+FROM node:lts-alpine AS dependencies
 WORKDIR /eve/common
 COPY ./common/package.json .
 WORKDIR /eve/graphql
@@ -17,12 +17,12 @@ RUN if [[ -z "$with_dev_dependencies" ]] ; then npm ci ; else npm ci --omit=dev 
 #
 # Runner
 #
-FROM node:alpine AS runner
+FROM node:lts-alpine AS runner
 WORKDIR /graphql
 COPY . .
 COPY --from=dependencies /graphql/node_modules ./node_modules
 
-FROM node:alpine AS runner
+FROM node:lts-alpine AS runner
 WORKDIR /eve
 COPY --from=dependencies /eve .
 WORKDIR /eve/common

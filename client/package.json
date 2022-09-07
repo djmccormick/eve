@@ -8,13 +8,13 @@
     "healthcheck": "./scripts/healthcheck.js"
   },
   "dependencies": {
-    "@apollo/client": "3.6.5",
-    "@emotion/react": "11.9.0",
-    "@emotion/server": "11.4.0",
-    "@emotion/styled": "11.8.1",
-    "@mui/icons-material": "5.8.0",
-    "@mui/material": "5.8.1",
+    "@apollo/client": "3.6.9",
+    "@emotion/react": "11.10.4",
+    "@emotion/server": "11.10.0",
+    "@emotion/styled": "11.10.4",
+    "@mui/icons-material": "5.10.3",
+    "@mui/material": "5.10.4",
     "lodash": "4.17.21",
-    "next": "12.1.6"
+    "next": "12.2.5"
   }
 }

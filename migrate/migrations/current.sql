@@ -1,10 +1,13 @@
 -- Enter migration here
 
 -- Create a new table to house users
-drop domain if exists email_adress;
-create domain email_address as text check (
-	value ~ '[a-z0-9!#$%&''*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*'
-);
+do $$ begin
+	create domain email_address as text check (
+		value ~ '[a-z0-9!#$%&''*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*'
+	);
+exception
+    when duplicate_object then null;
+end $$;
 
 drop table if exists users cascade;
 create table users (
