@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-const child_process = require('child_process');
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
+import { exec as childProcessExec } from 'child_process';
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { promisify } from 'util';
 
-const logger = require('eve-common')('migrate', 'run-fixtures');
+import { createLogger } from 'eve-common';
 
-const exec = util.promisify(child_process.exec);
+const exec = promisify(childProcessExec);
+const logger = createLogger('migrate', 'run-fixtures');
 
 (async () => {
 	try {
@@ -15,8 +16,8 @@ const exec = util.promisify(child_process.exec);
 		const paths = ['columns', 'functions', 'policies', 'triggers', 'views'];
 
 		for (const p of paths) {
-			const files = await fs.promises.readdir(path.join('.', 'fixtures', p));
-			const sqlFiles = files.filter(f => f.endsWith('.sql')).map(f => path.join('fixtures', p, f));
+			const files = await fs.readdir(join('.', 'fixtures', p));
+			const sqlFiles = files.filter(f => f.endsWith('.sql')).map(f => join('fixtures', p, f));
 
 			for (const f of sqlFiles) {
 				logger.info(`Running ${f}`);

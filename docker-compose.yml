@@ -72,41 +72,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-    command:
-      [
-        'npm',
-        'run',
-        'start',
-        '--workspace=graphql',
-        '--',
-        '--connection',
-        '${DATABASE_URL}',
-        '--owner-connection',
-        '${SUPERUSER_APPLICATION_DATABASE_URL}',
-        '--port',
-        '5433',
-        '--schema',
-        'public',
-        '--subscriptions',
-        '--watch',
-        '--dynamic-json',
-        '--no-setof-functions-contain-nulls',
-        '--no-ignore-rbac',
-        '--show-error-stack=json',
-        '--extended-errors',
-        'hint,detail,errcode',
-        '--export-schema-graphql',
-        'schema.graphql',
-        '--graphiql',
-        '/',
-        '--enhance-graphiql',
-        '--allow-explain',
-        '--enable-query-batching',
-        '--legacy-relations',
-        'omit',
-        '--append-plugins',
-        '@graphile-contrib/pg-order-by-related,@graphile-contrib/pg-simplify-inflector,postgraphile-plugin-connection-filter,postgraphile-plugin-nested-mutations'
-      ]
+    command: ['npm', 'run', 'dev', '--workspace=graphql']
   client:
     container_name: eve_client
     restart: unless-stopped

@@ -1,6 +1,7 @@
 {
   "name": "eve-migrate",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "npm run migrate",
     "migrate": "graphile-migrate watch --once && ./scripts/run-fixtures.js",

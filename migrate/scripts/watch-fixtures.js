@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-const child_process = require('child_process');
-const chokidar = require('chokidar');
-const util = require('util');
+import chokidar from 'chokidar';
+import { exec as childProcessExec } from 'child_process';
+import { promisify } from 'util';
 
-const logger = require('eve-common')('migrate', 'watch-fixtures');
+import { createLogger } from 'eve-common';
 
-const exec = util.promisify(child_process.exec);
+const exec = promisify(childProcessExec);
+const logger = createLogger('migrate', 'watch-fixtures');
 
 async function run(filename) {
 	logger.info(`Running ${filename}`);
